@@ -25,7 +25,8 @@ async function bootstrap() {
 
   app.enableCors({
     allowedHeaders: '*',
-    origin: '*',
+    credentials: true,
+    origin: ['http://localhost:3001', 'https://shop-client-vercel.vercel.app/'],
   });
 
   const config = new DocumentBuilder()
