@@ -24,9 +24,8 @@ async function bootstrap() {
   });
 
   app.enableCors({
-    allowedHeaders: '*',
     credentials: true,
-    origin: ['http://localhost:3001', 'https://shop-client-vercel.vercel.app/'],
+    origin: true,
   });
 
   const config = new DocumentBuilder()
