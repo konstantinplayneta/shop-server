@@ -18,7 +18,11 @@ async function bootstrap() {
 
   app.enableCors({
     credentials: true,
-    origin: ['http://localhost:3001', 'https://shop-client-vercel.vercel.app'],
+    origin: [
+      'http://localhost:3001',
+      'https://shop-client-vercel.vercel.app',
+      'https://shop-client-production.up.railway.app',
+    ],
   });
 
   const config = new DocumentBuilder()
