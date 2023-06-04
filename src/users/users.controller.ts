@@ -5,6 +5,7 @@ import {
   Header,
   HttpCode,
   HttpStatus,
+  Param,
   Post,
   Request,
   UseGuards,
@@ -19,6 +20,7 @@ import {
   LoginUserRequest,
   LoginUserResponse,
   LogoutUserResponse,
+  ProfileRequest,
   SignupResponse,
 } from './types';
 
@@ -55,5 +57,11 @@ export class UsersController {
   logout(@Request() req) {
     req.session.destroy();
     return { msg: 'session has ended' };
+  }
+
+  @ApiOkResponse({ type: ProfileRequest })
+  @Get('profile/:id')
+  getOne(@Param('id') id: string) {
+    return this.usersService.getProfile(id);
   }
 }

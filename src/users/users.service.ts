@@ -17,6 +17,12 @@ export class UsersService {
     return this.userModel.findOne({ ...filter });
   }
 
+  async getProfile(id: number | string): Promise<User> {
+    return this.userModel.findOne({
+      where: { id },
+    });
+  }
+
   async create(
     createUserDto: CreateUserDto,
   ): Promise<User | { warningMessage: string }> {

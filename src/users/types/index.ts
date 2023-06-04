@@ -65,3 +65,20 @@ export class SignupResponse {
   @ApiProperty({ example: '2023-03-17T17:23:33.502Z' })
   createdAt: string;
 }
+
+export class ProfileRequest {
+  @ApiProperty({
+    example: {
+      user: {
+        userId: 1,
+        username: 'Ivan',
+        password: 'ivan123',
+      },
+    },
+  })
+  user: {
+    userId: number;
+    username: string;
+    password: string;
+  };
+}
