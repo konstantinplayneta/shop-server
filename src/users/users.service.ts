@@ -19,7 +19,7 @@ export class UsersService {
 
   async getProfile(id: number | string): Promise<User> {
     return this.userModel.findOne({
-      where: { id },
+      where: { username: id },
     });
   }
 

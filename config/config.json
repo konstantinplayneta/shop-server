@@ -1,26 +1,26 @@
 {
   "development": {
-    "username": "freedb_unilfo",
-    "password": "Qm#kf&8KD52H6Vj",
-    "database": "freedb_shop_social",
-    "host": "sql.freedb.tech",
+    "username": "db_user",
+    "password": "db_user_pass",
+    "database": "app_db",
+    "host": "localhost",
     "dialect": "mysql",
-    "port": 3306
+    "port": 6033
   },
   "test": {
-    "username": "freedb_unilfo",
-    "password": "Qm#kf&8KD52H6Vj",
-    "database": "freedb_shop_social",
-    "host": "sql.freedb.tech",
+    "username": "db_user",
+    "password": "db_user_pass",
+    "database": "app_db",
+    "host": "localhost",
     "dialect": "mysql",
-    "port": 3306
+    "port": 6033
   },
   "production": {
-    "username": "freedb_unilfo",
-    "password": "Qm#kf&8KD52H6Vj",
-    "database": "freedb_shop_social",
-    "host": "sql.freedb.tech",
+    "username": "db_user",
+    "password": "db_user_pass",
+    "database": "app_db",
+    "host": "localhost",
     "dialect": "mysql",
-    "port": 3306
+    "port": 6033
   }
 }

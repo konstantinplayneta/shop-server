@@ -12,7 +12,6 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { LocalAuthGuard } from '../auth/local.auth.guard';
 import { AuthenticatedGuard } from 'src/auth/authenticated.guard';
 import { ApiBody, ApiOkResponse } from '@nestjs/swagger';
 import {
@@ -23,6 +22,7 @@ import {
   ProfileRequest,
   SignupResponse,
 } from './types';
+import { LocalAuthGuard } from 'src/auth/local.auth.guard';
 
 @Controller('users')
 export class UsersController {
