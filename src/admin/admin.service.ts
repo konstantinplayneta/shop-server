@@ -3,12 +3,14 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Admin } from './admin.model';
 import * as bcrypt from 'bcrypt';
 import { CreateAdminDto } from './dto/create-admin.dto';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AdminService {
   constructor(
     @InjectModel(Admin)
     private adminModel: typeof Admin,
+    private jwtService: JwtService,
   ) {}
 
   findOne(filter: { where: { username?: string } }): Promise<Admin> {
@@ -35,9 +37,7 @@ export class AdminService {
     return admin.save();
   }
 
-  async login(
-    createAdminDto: CreateAdminDto,
-  ): Promise<Admin | { warningMessage: string }> {
+  async login(createAdminDto: CreateAdminDto) {
     const existingByUserName = await this.findOne({
       where: { username: createAdminDto.username.toLowerCase() },
     });
@@ -56,7 +56,10 @@ export class AdminService {
     }
 
     if (passwordValid) {
-      return existingByUserName;
+      const payload = { username: existingByUserName.username };
+      return {
+        access_token: await this.jwtService.signAsync(payload),
+      };
     }
 
     return null;
