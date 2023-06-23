@@ -10,4 +10,31 @@ export class User extends Model {
 
   @Column
   email: string;
+
+  @Column
+  sex: string;
+
+  @Column
+  age: string;
+
+  @Column
+  sity: string;
+
+  @Column
+  status: string;
+
+  @Column
+  description: string;
+
+  @Column
+  instagram: string;
+
+  @Column
+  onlyfans: string;
+
+  @Column
+  youtube: string;
+
+  @Column
+  image: string;
 }
