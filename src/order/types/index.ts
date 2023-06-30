@@ -93,19 +93,17 @@ export class SignupResponse {
   createdAt: string;
 }
 
-export class ProfileRequest {
+export class OrderRequest {
   @ApiProperty({
     example: {
-      user: {
-        userId: 1,
-        username: 'Ivan',
-        password: 'ivan123',
+      order: {
+        id: 1,
+        order: 'Ivan',
       },
     },
   })
-  user: {
-    userId: number;
-    username: string;
-    password: string;
+  order: {
+    id: number;
+    order: string;
   };
 }

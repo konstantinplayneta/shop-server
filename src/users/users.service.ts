@@ -47,6 +47,15 @@ export class UsersService {
     user.username = createUserDto.username;
     user.password = hashedPassword;
     user.email = createUserDto.email;
+    user.sex = createUserDto.sex;
+    user.age = createUserDto.age;
+    user.sity = createUserDto.sity;
+    user.status = createUserDto.status;
+    user.description = createUserDto.description;
+    user.instagram = createUserDto.instagram;
+    user.onlyfans = createUserDto.onlyfans;
+    user.youtube = createUserDto.youtube;
+    user.image = createUserDto.image;
 
     return user.save();
   }

@@ -1,30 +1,26 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateUserDto {
-  @ApiProperty({ example: 'Ivan' })
-  @IsNotEmpty()
-  readonly username: string;
-
+export class CreateOrderDto {
   @ApiProperty({ example: 'ivan123' })
   @IsNotEmpty()
-  readonly password: string;
+  readonly order: string;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
-  readonly email: string;
+  readonly order_inner: string;
+
+  @ApiProperty({ example: '1000' })
+  @IsNotEmpty()
+  readonly total_price: number;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
-  readonly sex: string;
+  readonly owner: string;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
-  readonly age: string;
-
-  @ApiProperty({ example: 'ivan@gmail.com' })
-  @IsNotEmpty()
-  readonly sity: string;
+  readonly gift: string;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
@@ -36,17 +32,9 @@ export class CreateUserDto {
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
-  readonly instagram: string;
+  readonly data: string;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
-  readonly onlyfans: string;
-
-  @ApiProperty({ example: 'ivan@gmail.com' })
-  @IsNotEmpty()
-  readonly youtube: string;
-
-  @ApiProperty({ example: 'ivan@gmail.com' })
-  @IsNotEmpty()
-  readonly image: string;
+  readonly recipient: string;
 }
