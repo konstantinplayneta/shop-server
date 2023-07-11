@@ -6,6 +6,7 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
   Request,
   UseGuards,
@@ -63,5 +64,12 @@ export class UsersController {
   @Get('profile/:id')
   getOne(@Param('id') id: string) {
     return this.usersService.getProfile(id);
+  }
+
+  @ApiOkResponse({ type: SignupResponse })
+  @Patch('/update')
+  @Header('Content-type', 'application/json')
+  updateUser(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.update(createUserDto);
   }
 }
