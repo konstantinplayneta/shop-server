@@ -48,5 +48,13 @@ export class CreateUserDto {
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
+  readonly twitch: string;
+
+  @ApiProperty({ example: 'ivan@gmail.com' })
+  @IsNotEmpty()
   readonly image: string;
+
+  @ApiProperty({ example: 'ivan@gmail.com' })
+  @IsNotEmpty()
+  readonly background: string;
 }

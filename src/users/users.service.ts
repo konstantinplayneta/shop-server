@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/sequelize';
 import * as bcrypt from 'bcrypt';
 import { User } from './users.model';
 import { CreateUserDto } from './dto/create-user.dto';
-import { Op } from 'sequelize';
 
 @Injectable()
 export class UsersService {
@@ -56,6 +55,7 @@ export class UsersService {
     user.instagram = createUserDto.instagram;
     user.onlyfans = createUserDto.onlyfans;
     user.youtube = createUserDto.youtube;
+    user.twitch = createUserDto.twitch;
     user.image = createUserDto.image;
 
     return user.save();
@@ -73,17 +73,17 @@ export class UsersService {
     });
 
     console.log(checkUserByName);
-    
-    if (currentUser?.dataValues?.id !== checkUserByName?.dataValues?.id && !checkUserByName) {
+
+    if (
+      currentUser?.dataValues?.id !== checkUserByName?.dataValues?.id &&
+      !checkUserByName
+    ) {
       return { warningMessage: 'Пользователь с таким именем уже существует' };
     }
 
     const user = new User();
 
-    // const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-
     user.username = createUserDto.username;
-    // user.password = hashedPassword;
     user.email = createUserDto.email;
     user.sex = createUserDto.sex;
     user.age = createUserDto.age;
@@ -93,6 +93,7 @@ export class UsersService {
     user.instagram = createUserDto.instagram;
     user.onlyfans = createUserDto.onlyfans;
     user.youtube = createUserDto.youtube;
+    user.twitch = createUserDto.twitch;
     user.image = createUserDto.image;
 
     return currentUser.update(createUserDto);

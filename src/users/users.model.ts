@@ -36,5 +36,11 @@ export class User extends Model {
   youtube: string;
 
   @Column
+  twitch: string;
+
+  @Column
   image: string;
+
+  @Column
+  background: string;
 }

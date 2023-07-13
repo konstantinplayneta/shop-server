@@ -84,7 +84,13 @@ export class SignupResponse {
   readonly youtube: string;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
+  readonly twitch: string;
+
+  @ApiProperty({ example: 'ivan@gmail.com' })
   readonly image: string;
+
+  @ApiProperty({ example: 'ivan@gmail.com' })
+  readonly background: string;
 
   @ApiProperty({ example: '2023-03-17T17:23:33.502Z' })
   updatedAt: string;
