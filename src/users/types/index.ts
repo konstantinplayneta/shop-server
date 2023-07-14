@@ -92,6 +92,9 @@ export class SignupResponse {
   @ApiProperty({ example: 'ivan@gmail.com' })
   readonly background: string;
 
+  @ApiProperty({ example: 'ivan@gmail.com' })
+  readonly subscribers: string;
+
   @ApiProperty({ example: '2023-03-17T17:23:33.502Z' })
   updatedAt: string;
 

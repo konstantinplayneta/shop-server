@@ -18,9 +18,13 @@ export class UsersService {
   }
 
   async getProfile(id: number | string): Promise<User> {
-    return this.userModel.findOne({
+    const user = await this.userModel.findOne({
       where: { username: id },
     });
+
+    delete user.dataValues.password;
+
+    return user;
   }
 
   async create(
@@ -57,6 +61,7 @@ export class UsersService {
     user.youtube = createUserDto.youtube;
     user.twitch = createUserDto.twitch;
     user.image = createUserDto.image;
+    user.subscribers = createUserDto.subscribers;
 
     return user.save();
   }
@@ -72,8 +77,6 @@ export class UsersService {
       where: { username: createUserDto.username },
     });
 
-    console.log(checkUserByName);
-
     if (
       currentUser?.dataValues?.id !== checkUserByName?.dataValues?.id &&
       !checkUserByName
@@ -82,6 +85,15 @@ export class UsersService {
     }
 
     const user = new User();
+
+    console.log(123, createUserDto);
+
+    if (!createUserDto.password) {
+      console.log(await bcrypt.hash(createUserDto.password, 10));
+      createUserDto.password = currentUser.password;
+    } else {
+      createUserDto.password = await bcrypt.hash(createUserDto.password, 10);
+    }
 
     user.username = createUserDto.username;
     user.email = createUserDto.email;
@@ -95,6 +107,7 @@ export class UsersService {
     user.youtube = createUserDto.youtube;
     user.twitch = createUserDto.twitch;
     user.image = createUserDto.image;
+    user.subscribers = createUserDto.subscribers;
 
     return currentUser.update(createUserDto);
   }

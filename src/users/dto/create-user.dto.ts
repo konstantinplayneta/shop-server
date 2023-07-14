@@ -8,7 +8,7 @@ export class CreateUserDto {
 
   @ApiProperty({ example: 'ivan123' })
   @IsNotEmpty()
-  readonly password: string;
+  password: string;
 
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
@@ -57,4 +57,8 @@ export class CreateUserDto {
   @ApiProperty({ example: 'ivan@gmail.com' })
   @IsNotEmpty()
   readonly background: string;
+
+  @ApiProperty({ example: 'ivan@gmail.com' })
+  @IsNotEmpty()
+  readonly subscribers: string;
 }

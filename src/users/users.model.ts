@@ -43,4 +43,7 @@ export class User extends Model {
 
   @Column
   background: string;
+
+  @Column
+  subscribers: string;
 }
